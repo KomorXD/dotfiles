@@ -20,4 +20,4 @@ $ stow .
 ```
 
 ## After
-Go into $HOME/tmux and install plugins
+Go into $HOME/.config/tmux and install plugins
