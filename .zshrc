@@ -59,3 +59,5 @@ alias vim="nvim"
 alias c="clear"
 
 eval "$(fzf --zsh)"
+
+export PATH=$PATH:$HOME/.local/bin
