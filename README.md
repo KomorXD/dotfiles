@@ -9,7 +9,7 @@ Repository for my dotfiles:
 
 ## Requirements
 ```
-sudo pacman -S git stow
+sudo pacman -S git stow polybar i3wm i3-gaps tmux picom zsh alacritty rofi
 ```
 
 ## Installation
@@ -21,3 +21,4 @@ $ stow .
 
 ## After
 Go into $HOME/.config/tmux and install plugins
+Run `setup.sh`
