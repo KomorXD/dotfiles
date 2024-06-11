@@ -6,6 +6,7 @@ Repository for my dotfiles:
 - i3wm
 - tmux
 - picom
+- rofi
 
 ## Requirements
 ```
@@ -17,6 +18,7 @@ sudo pacman -S git stow polybar i3wm i3-gaps tmux picom zsh alacritty rofi
 $ git clone git@github.com/komorxd/dotfiles.git
 $ cd dotfiles
 $ stow .
+$ ./setup.sh
 ```
 
 ## After
