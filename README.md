@@ -23,4 +23,3 @@ $ ./setup.sh
 
 ## After
 Go into $HOME/.config/tmux and install plugins
-Run `setup.sh`
