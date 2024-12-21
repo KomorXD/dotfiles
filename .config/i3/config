@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -40,6 +40,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext  exec --no-startup-id playerctl next 
+bindsym XF86AudioPrev  exec --no-startup-id playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -108,6 +113,10 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# multiple monitor moves
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output right
 
 # focus the child container
 # bindsym $mod+d focus child
@@ -192,10 +201,14 @@ bindsym $mod+r mode "resize"
 #         position top
 # }
 
-exec_always --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 --rate 75.00 &
+exec_always --no-startup-id xrandr --output DisplayPort-0 --auto --right-of DisplayPort-1
 exec_always --no-startup-id $HOME/.config/polybar/polybar.sh &
 exec_always --no-startup-id $HOME/.config/picom/picom.sh &
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.jpg &
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper2.jpg $HOME/Pictures/wallpaper.jpg &
+exec_always --no-startup-id dunst
+exec_always --no-startup-id setxkbmap pl
+exec_always --no-startup-id xset dpms 0 0 1500 &
+exec_always --no-startup-id xss-lock -- i3lock -n -i background_image.png &
 
 smart_gaps off
 gaps inner 8

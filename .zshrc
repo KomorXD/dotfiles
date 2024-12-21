@@ -60,4 +60,4 @@ alias c="clear"
 
 eval "$(fzf --zsh)"
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
