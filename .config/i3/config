@@ -206,9 +206,10 @@ exec_always --no-startup-id $HOME/.config/polybar/polybar.sh &
 exec_always --no-startup-id $HOME/.config/picom/picom.sh &
 exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper2.jpg $HOME/Pictures/wallpaper.jpg &
 exec_always --no-startup-id dunst
-exec_always --no-startup-id setxkbmap pl
+exec_always --no-startup-id "sleep 5; setxkbmap pl"
 exec_always --no-startup-id xset dpms 0 0 1500 &
 exec_always --no-startup-id xss-lock -- i3lock -n -i background_image.png &
+exec_always --no-startup-id nm-applet
 
 smart_gaps off
 gaps inner 8
