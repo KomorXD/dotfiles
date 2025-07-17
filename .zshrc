@@ -31,7 +31,7 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-bindkey -e
+bindkey -d
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
@@ -57,6 +57,7 @@ alias ll="ls -lh"
 alias la="ls -lah"
 alias vim="nvim"
 alias c="clear"
+alias sudo="sudo-rs"
 
 eval "$(fzf --zsh)"
 
