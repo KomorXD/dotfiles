@@ -1,0 +1,11 @@
+#! /bin/bash
+
+choice=$(printf "󰐥 Power Off\n󰍃 Logout\n󰜉 Restart\n󰌾 Lock" | rofi -dmenu -i --width 400 --height 250)
+
+case "$choice" in
+    "󰐥 Power Off") poweroff ;;
+    "󰍃 Logout") hyprctl dispatch exit ;;
+    "󰜉 Restart") reboot now ;;
+    "󰌾 Lock") hyprlock ;;
+    *) exit 1 ;;
+esac

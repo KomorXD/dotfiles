@@ -1,16 +1,9 @@
 # My dotfiles
-Repository for my dotfiles:
-- zsh
-- alacritty
-- polybar
-- i3wm
-- tmux
-- picom
-- rofi
+Repository for my dotfiles.
 
 ## Requirements
 ```
-sudo pacman -S git stow polybar i3wm i3-gaps tmux picom zsh alacritty rofi
+sudo pacman -S git stow
 ```
 
 ## Installation
@@ -18,7 +11,7 @@ sudo pacman -S git stow polybar i3wm i3-gaps tmux picom zsh alacritty rofi
 $ git clone git@github.com/komorxd/dotfiles.git
 $ cd dotfiles
 $ stow .
-$ ./setup.sh
+$ ./install.sh
 ```
 
 ## After
