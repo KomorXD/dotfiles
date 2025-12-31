@@ -14,7 +14,6 @@
     "memory",
     "disk",
     "pulseaudio",
-    "network",
     "tray",
   ],
   "hyprland/workspaces": {
