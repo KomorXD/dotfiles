@@ -13,18 +13,18 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
+autoload -U compinit && compinit
+
+zinit light Aloxaf/fzf-tab
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
-
-autoload -U compinit && compinit
 
 zinit cdreplay -q
 
@@ -47,17 +47,16 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
-zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
-zstyle ":completion:*" menu no
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color $realpath"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls $realpath'
 
 alias ls="ls --color"
 alias ll="ls -lh"
 alias la="ls -lah"
 alias vim="nvim"
 alias c="clear"
-alias sudo="sudo-rs"
 
 eval "$(fzf --zsh)"
 
