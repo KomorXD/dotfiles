@@ -51,7 +51,7 @@ $menu = rofi -show drun --width 400 --allow-images
 exec-once = $HOME/.local/bin/import_env tmux
 exec-once = waybar &
 
-exec-once = discord --start-minimized &
+# exec-once = discord --start-minimized &
 exec-once = steam -silent &
 
 exec-once = hyprpm reload -n &
@@ -62,6 +62,8 @@ exec-once = nm-applet --indicator
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
 
 exec-once = /usr/bin/hyprsunset --gamma 90 --temperature 3500 &
+
+exec-once = bash -c "$HOME/.local/bin/sync-vps-backup.sh &"
 
 # exec-once = $terminal
 # exec-once = nm-applet &
@@ -116,8 +118,6 @@ general {
 
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
     allow_tearing = false
-
-    layout = dwindle
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
@@ -186,12 +186,6 @@ animations {
 # windowrule = bordersize 0, floating:0, onworkspace:f[1]
 # windowrule = rounding 0, floating:0, onworkspace:f[1]
 windowrule = float on, match:title EDI DEBENG
-
-# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-dwindle {
-    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    preserve_split = true # You probably want this
-}
 
 # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
 master {
@@ -283,11 +277,13 @@ bind = $mainMod, M, exit
 bind = $mainMod, F, togglefloating
 bind = $mainMod, D, exec, $menu
 bind = $mainMod, P, exec, pkill -9 waybar && waybar &
-bind = $mainMod, V, togglesplit
 bind = $mainMod, R, exec, sh -c $HOME/.local/bin/powermenu
 bind = $mainMod, Print, exec, hyprshot -m region --clipboard-only
 bind = $mainMod SHIFT, F, fullscreen
 bind = $mainMod SHIFT, Print, exec, hyprshot -m region
+
+bind = $mainMod, F1, exec, hyprctl hyprsunset gamma -10
+bind = $mainMod, F2, exec, hyprctl hyprsunset gamma +10
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
