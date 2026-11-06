@@ -28,17 +28,29 @@ require("env")
 
 -- See https://wiki.hyprland.org/Configuring/Monitors/
 hl.monitor({
-    output = "DP-2",
+    output = "DP-1",
+    mode = "2560x1440@144",
+    position = "auto-left",
+    scale = "auto",
+})
+
+hl.monitor({
+    output = "HDMI-A-1",
     mode = "preferred",
     position = "auto-right",
     scale = "auto",
 })
 
-hl.monitor({
-    output = "DP-1",
-    mode = "1920x1080@74.97",
-    position = "auto-left",
-    scale = "auto",
+hl.workspace_rule({
+    workspace = "1",
+    monitor = "DP-1",
+    default = true,
+})
+
+hl.workspace_rule({
+    workspace = "2",
+    monitor = "HDMI-A-1",
+    default = true,
 })
 
 --##################
@@ -257,6 +269,9 @@ hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("hyprctl hyprsunset gamma -10"))
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd("hyprctl hyprsunset gamma +10"))
 
+hl.bind(mainMod .. " + SHIFT + F1", hl.dsp.exec_cmd("hyprctl hyprsunset temperature -500"))
+hl.bind(mainMod .. " + SHIFT + F2", hl.dsp.exec_cmd("hyprctl hyprsunset temperature +500"))
+
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
@@ -443,6 +458,7 @@ hl.config({
 hl.on("hyprland.start", function()
     hl.exec_cmd("$HOME/.local/bin/import_env tmux")
     hl.exec_cmd("waybar &")
+    hl.exec_cmd("mprisence &")
     hl.exec_cmd("steam -silent &")
     hl.exec_cmd("hyprpm reload -n &")
     hl.exec_cmd("gammastep -l 50.270908:19.039993 -t 6500:3000 &")
